@@ -6,15 +6,17 @@
 #
 set -x
 
+BASEDIR=$(dirname "$0")
+
 # Install the required tool chain
-chmod +x install_toolchain.sh
-sh ./install_toolchain.sh
+chmod +x $BASEDIR/install_toolchain.sh
+sh $BASEDIR/install_toolchain.sh
 
 # Download and build MicroPython
-chmod +x build_micropython.sh
-sh ./build_micropython.sh $1
+chmod +x $BASEDIR/build_micropython.sh
+sh $BASEDIR/build_micropython.sh $1
 
 # Collect information
-chmod +x collect.sh
-sh ./collect.sh $2
+chmod +x $BASEDIR/collect.sh
+sh $BASEDIR/collect.sh $2
 ls $2

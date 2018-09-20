@@ -7,11 +7,14 @@ jobs:
       - checkout
       - run:
           name: Prepare
-          command: 'mkdir artefacts'
+          command: |
+            mkdir artefacts
+            ls
       - run:
           name: Run all
-          command: 'chmod +x /home/run_all.sh'
-          command: 'run_all.sh $VERSION artefacts'
+          command: |
+            chmod +x scripts/run_all.sh
+            sh scripts/run_all.sh v1.0.0 artefacts
 workflows:
   version: 2
   build_and_test:
