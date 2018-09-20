@@ -1,8 +1,7 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: ubuntu:bionic-20180821
+    machine: true
     steps:
       - checkout
       - run:
@@ -11,12 +10,23 @@ jobs:
             mkdir artefacts
             ls
       - run:
-          name: Run all
+          name: Build from Dockerfile
           command: |
-            chmod +x scripts/run_all.sh
-            sh scripts/run_all.sh v1.0.0 artefacts
+            docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 .
+      - run:
+          name: Save docker container artefacts
+          command: |
+            docker run --name ubit-upy-container ubit-upy-img
+            docker cp ubit-upy-container:/home/artefacts .
+      - run:
+          name: Docker save
+          command: |
+            docker save ubit-upy-img > ubit-upy-img.tar
+            gzip -c ubit-upy-img.tar > ubit-upy-img.tar.gz
+            mv ubit-upy-img.tar.gz artefacts/ubit-upy-img.tar.gz
       - store_artifacts:
           path: artefacts
+
 workflows:
   version: 2
   build_and_test:
