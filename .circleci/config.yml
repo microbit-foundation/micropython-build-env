@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:bionic-20180821
+    steps:
+      - checkout
+      - run:
+          name: Prepare
+          command: 'mkdir artefacts'
+      - run:
+          name: Run all
+          command: 'chmod +x /home/run_all.sh'
+          command: 'run_all.sh $VERSION artefacts'
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
