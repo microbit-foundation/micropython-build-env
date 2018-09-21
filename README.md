@@ -25,15 +25,15 @@ This section is a WIP, we need to figure out how this works...
 To find the artefacts, first find the created volume:
 
 ```
-docker run -it microbit-micropython
+docker run -it ubit-upy-img
 docker volume ls
 ```
 
 ### Copy files from docker to host
 
 ```
-docker run -it --name ubit-upy-container microbit-micropython
-docker cp microbit-micropython:/home/artefacts .
+docker run --name ubit-upy-container ubit-upy-img
+docker cp ubit-upy-container:/home/artefacts .
 ```
 
 
@@ -44,6 +44,13 @@ docker save ubit-upy-img > ubit-upy-img.tar
 gzip -c ubit-upy-img.tar > ubit-upy-img.tar.gz
 ```
 
+### Load docker image
+
+```
+gzip -d ubit-upy-img.tar.gz
+docker load < ubit-upy-img.tar
+docker image ls -a
+```
 
 ## Tips
 
