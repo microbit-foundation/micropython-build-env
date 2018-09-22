@@ -7,10 +7,9 @@ git clone https://github.com/bbcmicrobit/micropython.git
 cd micropython
 if [ -z "$1" ]
 then
-    pretty_echo "No MicroPython version supplied, checkout v1.0.0"
-    git checkout tags/v1.0.0
+    pretty_echo "No MicroPython version supplied, build master"
 else
-    pretty_echo "MicroPython version to check out supplied: $1"
+    pretty_echo "MicroPython version to build supplied: $1"
     git checkout tags/$1
 fi
 
