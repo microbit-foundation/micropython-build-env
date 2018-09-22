@@ -5,21 +5,21 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Prepare
+          name: Prepare directory
           command: |
             mkdir artefacts
             ls
       - run:
-          name: Build from Dockerfile
+          name: Build image from Dockerfile
           command: |
             docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 .
       - run:
-          name: Save docker container artefacts
+          name: Save container artefacts
           command: |
             docker run --name ubit-upy-container ubit-upy-img
             docker cp ubit-upy-container:/home/artefacts .
       - run:
-          name: Docker save
+          name: Save docker image
           command: |
             docker save ubit-upy-img > ubit-upy-img.tar
             gzip -c ubit-upy-img.tar > ubit-upy-img.tar.gz

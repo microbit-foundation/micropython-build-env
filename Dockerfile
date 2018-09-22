@@ -1,4 +1,4 @@
-# Simple Dockerfile to just run all the scripts on a base Ubuntu image
+# Simple Dockerfile to run all the scripts on a base Ubuntu image
 FROM ubuntu:bionic-20180821
 
 # Command line argument with default for MicroPython version to build
@@ -13,11 +13,8 @@ COPY scripts/install_toolchain.sh \
      Pipfile.lock \
      /home/
 
-RUN mkdir /home/artefacts
-# Contents inside a volume are removed, we need to figure out how to use this
-# VOLUME ["/home/artefacts"]
-
 # Execute the scripts
 WORKDIR /home/
+RUN mkdir /home/artefacts
 RUN chmod +x /home/run_all.sh
 RUN /home/run_all.sh $VERSION /home/artefacts

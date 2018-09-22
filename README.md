@@ -6,27 +6,16 @@ Replicable build environment for MicroPython
 
 ### Build docker image
 
-Build the docker image, the `VERSION` should be a git tag:
+Build the docker image, the `VERSION` should be a MicroPython git tag:
 
 ```
 docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 .
 ```
 
-To keep good traceability it's better to save the build output, so preferably do:
+For better traceability it's good to save the build output, so preferably do:
 
 ```
-docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 . 2>&1 | tee shared/docker_build_op.txt
-```
-
-### Volumes
-
-This section is a WIP, we need to figure out how this works...
-
-To find the artefacts, first find the created volume:
-
-```
-docker run -it ubit-upy-img
-docker volume ls
+docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 . 2>&1 | tee docker_build_op.txt
 ```
 
 ### Copy files from docker to host
@@ -57,5 +46,5 @@ docker image ls -a
 Run a bash session (launches a new container) inside an existing docker image:
 
 ```
-docker run -it --entrypoint /bin/bash microbit-micropython
+docker run -it --entrypoint /bin/bash ubit-upy-img
 ```
