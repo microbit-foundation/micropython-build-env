@@ -19,4 +19,4 @@ yt clean
 yt target bbc-microbit-classic-gcc-nosd
 yt up
 make all
-pretty_echo "MicroPython hex file location:\n#\tmicropython/firmware.hex"
+pretty_echo "MicroPython hex file location:\n#\tmicropython/build/firmware.hex"
