@@ -4,6 +4,7 @@
 #    $1: MicroPython git tag to build
 #    $2: Path to folder where to save collected files or artefacts
 #
+set -e
 set -x
 
 BASEDIR=$(dirname "$0")
