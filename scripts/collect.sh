@@ -18,7 +18,9 @@ python -m pip freeze >> $1/python_info.txt
 apt list --installed > $1/apt_packages.txt
 
 # Copy MicroPython hex file
-cp micropython/build/firmware.hex $1/firmware.hex
+cp micropython/build/firmware.hex $1/micropython-v1-firmware.hex
+cp micropython-microbit-v2/src/MICROBIT.hex $1/micropython-v2-firmware.hex
 
 # Copy MicroPython directory
-tar -zcvf $1/micropython-build-src.tar.gz micropython 1> /dev/null
+tar -zcvf $1/micropython-v1-build-src.tar.gz micropython 1> /dev/null
+tar -zcvf $1/micropython-v2-build-src.tar.gz micropython-microbit-v2 1> /dev/null

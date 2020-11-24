@@ -22,17 +22,18 @@ pretty_echo "Installing Pipenv v2018.11.26..."
 python -m pip install pipenv==2018.11.26
 
 pretty_echo "Installing yotta dependencies..."
-apt-get install -y cmake=3.10.2-1ubuntu2
+# apt-get install -y cmake=3.10.2-1ubuntu2 # This doesn't currently install
 apt-get install -y build-essential=12.4ubuntu1
 apt-get install -y ninja-build=1.8.2-1
 apt-get install -y srecord=1.58-1.1ubuntu2
 
-pretty_echo "Installing Yotta in system Python 2 via locked Pipfile"
+pretty_echo "Installing Yotta and CMake in system Python 2 via locked Pipfile"
 if [ ! -f Pipfile.lock ] ; then
     echo 'Pipfile.lock not found, exit.'
     exit 1
 fi
 pipenv install --system
+python -m pip install  cmake==3.13.3
 
 pretty_echo "Clean up a bit to reduce image size"
 apt-get clean
