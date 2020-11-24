@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Build image from Dockerfile
           command: |
-            docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.1 . 2>&1 | tee artefacts/docker_build_op.txt
+            docker build -t "ubit-upy-img" . 2>&1 | tee artefacts/docker_build_op.txt
       - run:
           name: Save container artefacts
           command: |
