@@ -6,16 +6,17 @@ Replicable build environment for MicroPython
 
 ### Build docker image
 
-Build the docker image, the `VERSION` should be a MicroPython git tag:
+Build the docker image, you can overwrite the default versions by setting the
+ `VERSION_V1` and `VERSION_V2` arguments with a MicroPython git tag:
 
 ```
-docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 .
+docker build -t "ubit-upy-img" --build-arg VERSION_V1=v1.0.0 --build-arg VERSION_V2=v2.0.0 .
 ```
 
 For better traceability it's good to save the build output, so preferably do:
 
 ```
-docker build -t "ubit-upy-img" --build-arg VERSION=v1.0.0 . 2>&1 | tee docker_build_op.txt
+docker build -t "ubit-upy-img" VERSION_V1=v1.0.0 --build-arg VERSION_V2=v2.0.0 . 2>&1 | tee docker_build_op.txt
 ```
 
 ### Copy files from docker to host

@@ -33,7 +33,7 @@ if [ ! -f Pipfile.lock ] ; then
     exit 1
 fi
 pipenv install --system
-python -m pip install  cmake==3.13.3
+python -m pip install cmake==3.13.3
 
 pretty_echo "Clean up a bit to reduce image size"
 apt-get clean
