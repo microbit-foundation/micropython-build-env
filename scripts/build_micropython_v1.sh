@@ -16,7 +16,7 @@ fi
 # Build it
 pretty_echo "Building MicroPython..."
 yt clean
-yt target bbc-microbit-classic-gcc-nosd
+yt target bbc-microbit-classic-gcc-nosd@https://github.com/lancaster-university/yotta-target-bbc-microbit-classic-gcc-nosd
 yt up
 make all
 pretty_echo "MicroPython hex file location:\n#\tmicropython/build/firmware.hex"
