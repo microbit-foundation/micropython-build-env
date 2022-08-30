@@ -2,8 +2,8 @@
 FROM ubuntu:bionic-20180821
 
 # Command line argument for MicroPython version to build with a default value
-ARG VERSION_V1=v1.0.1
-ARG VERSION_V2=v2.0.0
+ARG VERSION_V1=v1.1.0-beta.1
+ARG VERSION_V2=v2.1.0-beta.1
 
 # Add the scripts and Pipfiles to the docker image
 COPY scripts/install_toolchain.sh \
