@@ -1,5 +1,5 @@
 # Simple Dockerfile to run all the scripts on a base Ubuntu image
-FROM ubuntu:bionic-20180821
+FROM ubuntu:bionic-20220902
 
 # Command line argument for MicroPython version to build with a default value
 ARG VERSION_V1=v1.1.0-beta.1
@@ -11,8 +11,7 @@ COPY scripts/install_toolchain.sh \
      scripts/build_micropython_v2.sh \
      scripts/collect.sh \
      scripts/run_all.sh \
-     Pipfile \
-     Pipfile.lock \
+     requirements.txt \
      /home/
 
 # Execute the scripts

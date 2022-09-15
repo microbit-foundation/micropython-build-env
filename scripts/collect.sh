@@ -12,8 +12,8 @@ python -c "import sys;print(sys.version)" >> $1/python_info.txt
 python -c "import struct; print('{}-bits\n'.format(struct.calcsize('P') * 8))" >> $1/python_info.txt
 echo "Pip version:" >> $1/python_info.txt
 python -m pip --version >> $1/python_info.txt && echo "" >> $1/python_info.txt
-echo "Pip freeze:" >> $1/python_info.txt
-python -m pip freeze >> $1/python_info.txt
+echo "Pip list:" >> $1/python_info.txt
+python -m pip list --verbose >> $1/python_info.txt
 
 # Get installed packages
 apt list --installed > $1/apt_packages.txt
