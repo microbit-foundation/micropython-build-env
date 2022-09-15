@@ -3,6 +3,7 @@
 # This script collects system info, and the built MicroPython hex and places it
 # in the directory indicated by the first command line argument (mandatory)
 #
+set -e
 set -x
 
 # Get Python and modules info

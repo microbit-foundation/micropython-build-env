@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 alias pretty_echo='{ set +x; } 2> /dev/null; f(){ echo "#\n#\n# $1\n#\n#"; set -x; }; f'
 
 
