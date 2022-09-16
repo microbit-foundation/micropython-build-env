@@ -17,9 +17,11 @@ COPY scripts/install_toolchain.sh \
      requirements.txt \
      /home/
 
-RUN /home/install_toolchain.sh
-
 WORKDIR /home/
+
+RUN /home/install_toolchain.sh 
+ENV PATH $PATH:/opt/gcc-arm-none-eabi/bin
+
 RUN /home/build_micropython_v1.sh $VERSION_V1 $ARTEFACTS_PATH
 RUN /home/build_micropython_v2.sh $VERSION_V2 $ARTEFACTS_PATH
 
