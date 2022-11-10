@@ -3,8 +3,8 @@ FROM ubuntu:bionic-20220902
 
 # Default value for the command line argument to select MicroPython versions
 # to build. If one of these is set to "skip" it will not build it 
-ARG VERSION_V1=v1.1.0
-ARG VERSION_V2=v2.1.0
+ARG VERSION_V1=v1.1.1
+ARG VERSION_V2=v2.1.1
 
 # Configure directory to save all artefacts
 ARG ARTEFACTS_PATH=/home/artefacts
