@@ -19,7 +19,7 @@ version build argument, e.g. `--build-arg VERSION_V1=skip`
 For better traceability it's recommendable to save the build output, so preferably do:
 
 ```
-docker build -t "ubit-upy-img" VERSION_V1=v1.0.0 --build-arg VERSION_V2=v2.0.0 . 2>&1 | tee docker_build_op.txt
+docker build -t "ubit-upy-img" --build-arg VERSION_V1=v1.0.0 --build-arg VERSION_V2=v2.0.0 . 2>&1 | tee docker_build_op.txt
 ```
 
 ### Copy files from docker to host
