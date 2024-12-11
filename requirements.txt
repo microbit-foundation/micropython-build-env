@@ -36,7 +36,7 @@ psutil==5.9.2
 pycparser==2.21
 pyelftools==0.23
 PyGithub==1.45
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylink-square==0.14.2
 pyocd==0.29.0
 pyusb==1.1.0
